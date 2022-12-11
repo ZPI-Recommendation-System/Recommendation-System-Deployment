@@ -69,6 +69,15 @@ services:
     healthcheck:
       test: "exit 0"
 
+  nginx:
+    image: nginx:alpine
+    volumes:
+      - ./config/nginx.conf:/etc/nginx/nginx.conf:ro
+    restart: always
+    hostname: nginx_main
+    networks:
+      - frontend
+      - backend
 
 networks:
   backend: {}
