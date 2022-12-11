@@ -26,7 +26,6 @@ services:
 
   backend:
     build: https://github.com/ZPI-Recommendation-System/Recommendation-Backend.git
-#    image: backend
     env_file:
       - config/.backend-env
     networks:
@@ -35,25 +34,25 @@ services:
     restart: always
     hostname: backend
     ports:
-      - '3003:3000'
+      - '5036:3000'
     healthcheck:
       test: "exit 0"
     depends_on:
       db:
         condition: service_healthy
-#      scraper:
-#        condition: service_healthy
+      scraper:
+        condition: service_healthy
 
-#  scraper:
-#    build: https://github.com/ZPI-Recommendation-System/Scapper-System.git
-#    env_file:
-#      - config/.scraper-env
-#      - app.cfg
-#    networks:
-#      - backend
-#    healthcheck:
-#      test: "exit 0"
-#    hostname: scraper
+  scraper:
+    build: https://github.com/ZPI-Recommendation-System/Scapper-System.git
+    env_file:
+      - config/.scraper-env
+      - app.cfg
+    networks:
+      - backend
+    healthcheck:
+      test: "exit 0"
+    hostname: scraper
 
   db:
     image: postgres
