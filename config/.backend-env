@@ -1,0 +1,11 @@
+DB_HOST=db
+DB_PORT=5432
+DB_USER=backend
+DB_PASS=backend123
+DB_DB=recommendation-system
+ADMIN_USERNAME=admin
+ADMIN_EMAIL=admin@admin.com
+ADMIN_PASSWORD=admin
+ADMIN_ROLE=admin
+ADMIN_NAME=admin
+ADMIN_SURNAME=admin

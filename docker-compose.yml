@@ -1,0 +1,76 @@
+name: recommendation-system
+services:
+#  admin:
+#    image: admin
+#    networks:
+#      - backend
+#    ports:
+#      - '3001:3000'
+#    restart: always
+#    hostname: admin
+#    depends_on:
+#      backend:
+#        condition: service_healthy
+
+#  frontend:
+#    image: frontend
+#    networks:
+#      - frontend
+#    ports:
+#      - '3002:3000'
+#    restart: always
+#    hostname: frontend
+#    depends_on:
+#      backend:
+#        condition: service_healthy
+
+  backend:
+    build: https://github.com/ZPI-Recommendation-System/Recommendation-Backend.git
+#    image: backend
+    env_file:
+      - config/.backend-env
+    networks:
+      - backend
+      - frontend
+    restart: always
+    hostname: backend
+    ports:
+      - '3003:3000'
+    healthcheck:
+      test: "exit 0"
+    depends_on:
+      db:
+        condition: service_healthy
+#      scraper:
+#        condition: service_healthy
+
+#  scraper:
+#    build: https://github.com/ZPI-Recommendation-System/Scapper-System.git
+#    env_file:
+#      - config/.scraper-env
+#      - app.cfg
+#    networks:
+#      - backend
+#    healthcheck:
+#      test: "exit 0"
+#    hostname: scraper
+
+  db:
+    image: postgres
+    volumes:
+      - ./config/init_db.sh:/docker-entrypoint-initdb.d/init_db.sh
+    restart: always
+    hostname: db
+    networks:
+      - backend
+    env_file:
+      - config/.db-env
+    ports:
+      - '5532:5432'
+    healthcheck:
+      test: "exit 0"
+
+
+networks:
+  backend: {}
+  frontend: {}

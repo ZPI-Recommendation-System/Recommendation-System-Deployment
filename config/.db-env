@@ -1,0 +1,4 @@
+BACKEND_USER=backend
+BACKEND_PASSWORD=backend123
+RECOMMENDATION_DB=recommendation-system
+POSTGRES_PASSWORD=postgres
