@@ -95,8 +95,6 @@ services:
     ports:
       - '80:80'
     depends_on:
-        backend:
-          condition: service_healthy
         frontend:
           condition: service_healthy
         admin:
