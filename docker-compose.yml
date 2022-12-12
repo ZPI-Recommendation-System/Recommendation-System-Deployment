@@ -3,6 +3,7 @@ services:
   admin:
     build: 
       context: https://github.com/ZPI-Recommendation-System/Recommendation-admin.git
+      dockerfile: Dockerfile.dev
       args:
         - REACT_APP_API_URL=http://zpi.zgrate.ovh:5041/api
     env_file:
