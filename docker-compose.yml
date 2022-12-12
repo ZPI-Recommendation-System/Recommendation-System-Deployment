@@ -10,15 +10,13 @@ services:
       - config/.admin-env
     networks:
       - frontend
-    ports:
-      - '5049:3000'
     restart: always
     hostname: admin
     healthcheck:
       test: "exit 0"
-    # depends_on:
-    #   backend:
-    #     condition: service_healthy
+    depends_on:
+      backend:
+        condition: service_healthy
 
   frontend:
     build: 
@@ -29,17 +27,15 @@ services:
       - config/.frontend-env
     networks:
       - frontend
-    ports:
-      - '3002:3000'
     restart: always
     hostname: frontend
     extra_hosts:
       - "host.docker.internal:host-gateway"
     healthcheck:
       test: "exit 0"
-    # depends_on:
-    #   backend:
-    #     condition: service_healthy
+    depends_on:
+      backend:
+        condition: service_healthy
 
   backend:
     build: https://github.com/ZPI-Recommendation-System/Recommendation-Backend.git
@@ -50,8 +46,6 @@ services:
       - frontend
     restart: always
     hostname: backend
-    ports:
-      - '5036:3000'
     healthcheck:
       test: "exit 0"
     extra_hosts:
@@ -99,11 +93,11 @@ services:
       - backend
     ports:
       - '80:80'
-    # depends_on:
-    #     frontend:
-    #       condition: service_healthy
-    #     admin:
-    #       condition: service_healthy
+    depends_on:
+        frontend:
+          condition: service_healthy
+        admin:
+          condition: service_healthy
 
 networks:
   backend: {}
