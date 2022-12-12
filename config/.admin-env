@@ -1,1 +1,2 @@
 REACT_APP_API_URL=http://zpi.zgrate.ovh:5041/api
+PUBLIC_URL=http://zpi.zgrate.ovh:5041/admin
