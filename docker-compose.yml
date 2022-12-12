@@ -16,9 +16,9 @@ services:
     hostname: admin
     healthcheck:
       test: "exit 0"
-    depends_on:
-      backend:
-        condition: service_healthy
+    # depends_on:
+    #   backend:
+    #     condition: service_healthy
 
   frontend:
     build: 
@@ -35,9 +35,9 @@ services:
     hostname: frontend
     healthcheck:
       test: "exit 0"
-    depends_on:
-      backend:
-        condition: service_healthy
+    # depends_on:
+    #   backend:
+    #     condition: service_healthy
 
   backend:
     build: https://github.com/ZPI-Recommendation-System/Recommendation-Backend.git
@@ -95,6 +95,11 @@ services:
       - backend
     ports:
       - '80:80'
+    # depends_on:
+    #     frontend:
+    #       condition: service_healthy
+    #     admin:
+    #       condition: service_healthy
 
 networks:
   backend: {}
