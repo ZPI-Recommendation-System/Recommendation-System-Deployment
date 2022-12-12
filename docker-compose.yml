@@ -5,6 +5,7 @@ services:
       context: https://github.com/ZPI-Recommendation-System/Recommendation-admin.git
       args:
         - REACT_APP_API_URL=http://zpi.zgrate.ovh:5041/api
+        - PUBLIC_URL=http://zpi.zgrate.ovh:5041/admin
     env_file:
       - config/.admin-env
     networks:
