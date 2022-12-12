@@ -1,4 +1,5 @@
-DB_HOST=zpi.zgrate.ovh
+# DB_HOST=zpi.zgrate.ovh
+DB_HOST=host.docker.internal
 DB_PORT=5035
 
 #DB_HOST=db
