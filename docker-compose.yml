@@ -62,6 +62,8 @@ services:
       - ./resources/offers.csv:/resources/prices.csv
     healthcheck:
       test: "exit 0"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     hostname: scraper
 
   db:
