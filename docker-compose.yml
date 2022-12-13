@@ -63,6 +63,8 @@ services:
       - app.cfg
     networks:
       - backend
+    volumes:
+      - ./resources/offers.csv:/data/prices.csv
     healthcheck:
       test: "exit 0"
     hostname: scraper

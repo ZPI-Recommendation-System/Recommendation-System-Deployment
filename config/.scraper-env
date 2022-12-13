@@ -9,3 +9,4 @@ DB_DB=recommendation-system
 DATA_API=allegro.pl
 AUTH_TOKEN=ABCDEFGHIJK
 BACKEND_URL=http://backend:3000
+PRICE_FILE=/data/prices.csv
