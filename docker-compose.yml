@@ -1,8 +1,6 @@
 name: recommendation-system
 services:
   admin:
-#  env_file:
-#    - config/.admin-env
     build:
       context: https://github.com/ZPI-Recommendation-System/Recommendation-admin.git
       args:
@@ -19,8 +17,6 @@ services:
         condition: service_healthy
 
   frontend:
-#    env_file:
-#      - config/.frontend-env
     build: 
       context: https://github.com/ZPI-Recommendation-System/Recommendation-Frontend.git
       args:
