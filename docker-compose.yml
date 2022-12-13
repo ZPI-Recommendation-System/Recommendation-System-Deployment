@@ -60,7 +60,6 @@ services:
     build: https://github.com/ZPI-Recommendation-System/Scapper-System.git
     env_file:
       - config/.scraper-env
-      - app.cfg
     networks:
       - backend
     volumes:
