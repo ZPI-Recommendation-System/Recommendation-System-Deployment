@@ -1,13 +1,13 @@
 name: recommendation-system
 services:
   admin:
-    build: 
+#  env_file:
+#    - config/.admin-env
+    build:
       context: https://github.com/ZPI-Recommendation-System/Recommendation-admin.git
       args:
-        - REACT_APP_API_URL=http://zpi.zgrate.ovh:5041/api
-        - PUBLIC_URL=http://zpi.zgrate.ovh:5041/admin
-    env_file:
-      - config/.admin-env
+        - REACT_APP_API_URL=$REACT_APP_API_URL
+        - PUBLIC_URL=$PUBLIC_URL
     networks:
       - frontend
     restart: always
@@ -19,12 +19,12 @@ services:
         condition: service_healthy
 
   frontend:
+#    env_file:
+#      - config/.frontend-env
     build: 
       context: https://github.com/ZPI-Recommendation-System/Recommendation-Frontend.git
       args:
-        - REACT_APP_API_URL=http://zpi.zgrate.ovh:5041/api
-    env_file:
-      - config/.frontend-env
+        - REACT_APP_API_URL=$REACT_APP_API_URL
     networks:
       - frontend
     restart: always
