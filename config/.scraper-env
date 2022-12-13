@@ -1,17 +1,11 @@
-DB_HOST=zpi.zgrate.ovh
-DB_PORT=5035
-
-#DB_HOST=db
-#DB_PORT=5432
+DB_HOST=db
+DB_PORT=5432
 DB_USER=backend
 DB_PASS=backend123
 DB_DB=recommendation-system
 DATA_API=allegro.pl
 AUTH_TOKEN=ABCDEFGHIJK
 BACKEND_URL=http://backend:3000
-<<<<<<< HEAD
 CLIENT_ID=151679664f4243b7a371411895640abb
 CLIENT_SECRET=54ZA1nX5K8Bdaqih1oHfdNbGFloFR4x0TGyFxkYIpYT8GtLdQvpHbRiUdfdzqNrG
-=======
 PRICE_FILE=/data/prices.csv
->>>>>>> c34155abb6b8370a8096168b5340a5fdb14c11ed
