@@ -64,7 +64,7 @@ services:
     networks:
       - backend
     volumes:
-      - ./resources/offers.csv:/data/prices.csv
+      - ./resources/offers.csv:/resources/prices.csv
     healthcheck:
       test: "exit 0"
     hostname: scraper
