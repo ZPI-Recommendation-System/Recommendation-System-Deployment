@@ -12,6 +12,8 @@
 5. App won't probably work, so you have to fix it by hand according to changes in Allegro
 6. You can also specify your own use profiles in line 19, 20
    
-   ` options.add_argument(r"--user-data-dir="+os.path.abspath("./ChromeProfile"))
-    options.add_argument(r'--profile-directory=Profile 17')`
+   ```python
+    options.add_argument(r"--user-data-dir="+os.path.abspath("./ChromeProfile")) 
+    options.add_argument(r'--profile-directory=Profile 17')
+    ```
 7. Good luck :)
