@@ -4,8 +4,7 @@ services:
     build:
       context: https://github.com/ZPI-Recommendation-System/Recommendation-admin.git
       args:
-        - REACT_APP_API_URL=$REACT_APP_API_URL
-        - PUBLIC_URL=$PUBLIC_URL
+        REACT_APP_API_URL: $REACT_APP_API_URL
     networks:
       - frontend
     restart: always
@@ -20,7 +19,7 @@ services:
     build: 
       context: https://github.com/ZPI-Recommendation-System/Recommendation-Frontend.git
       args:
-        - REACT_APP_API_URL=$REACT_APP_API_URL
+        REACT_APP_API_URL: $REACT_APP_API_URL
     networks:
       - frontend
     restart: always
@@ -60,6 +59,7 @@ services:
       - backend
     volumes:
       - ./resources/offers.csv:/resources/prices.csv
+    restart: always
     healthcheck:
       test: "exit 0"
     extra_hosts:
@@ -76,8 +76,6 @@ services:
       - backend
     env_file:
       - config/.db-env
-    ports:
-      - '5532:5432'
     healthcheck:
       test: "exit 0"
 
@@ -92,7 +90,6 @@ services:
       - backend
     ports:
       - '80:80'
-      - '8080:8080'
     depends_on:
         frontend:
           condition: service_healthy
