@@ -9,7 +9,7 @@
 
 1. Clone repository
 
-   `git clone https://github.com/ZPI-Recommendation-System/Recommendation-Deployment.git & cd Recommendation-Deployment`
+   `git clone https://github.com/ZPI-Recommendation-System/Recommendation-System-Deployment.git & cd Recommendation-Deployment`
 
 
 2. Set up `.env` file -> Config for backend API address. Change REACT_APP_API_URL to address where API will be available (default same address as site + /api). You can set this up to `localhost/api` for local testing.
