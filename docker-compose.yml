@@ -2,7 +2,7 @@ name: recommendation-system
 services:
   admin:
     build:
-      context: https://github.com/ZPI-Recommendation-System/Recommendation-admin.git
+      context: https://github.com/ZPI-Recommendation-System/Recommendation-System-Admin.git
       args:
         REACT_APP_API_URL: $REACT_APP_API_URL
     networks:
@@ -17,7 +17,7 @@ services:
 
   frontend:
     build: 
-      context: https://github.com/ZPI-Recommendation-System/Recommendation-Frontend.git
+      context: https://github.com/ZPI-Recommendation-System/Recommendation-System-Frontend.git
       args:
         REACT_APP_API_URL: $REACT_APP_API_URL
     networks:
@@ -33,7 +33,7 @@ services:
         condition: service_healthy
 
   backend:
-    build: https://github.com/ZPI-Recommendation-System/Recommendation-Backend.git
+    build: https://github.com/ZPI-Recommendation-System/Recommendation-System-Backend.git
     env_file:
       - config/.backend-env
     networks:
@@ -52,7 +52,7 @@ services:
         condition: service_healthy
 
   scraper:
-    build: https://github.com/ZPI-Recommendation-System/Scapper-System.git
+    build: https://github.com/ZPI-Recommendation-System/Recommendation-System-Scraper.git
     env_file:
       - config/.scraper-env
     networks:
