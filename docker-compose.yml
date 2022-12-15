@@ -58,7 +58,7 @@ services:
     networks:
       - backend
     volumes:
-      - ./scraper/resources/offers.csv:/resources/offers.csv
+      - ./resources/offers.csv:/scraper/resources/offers.csv
     restart: always
     healthcheck:
       test: "exit 0"
